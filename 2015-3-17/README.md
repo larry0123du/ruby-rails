@@ -21,6 +21,8 @@
 
 ## Components
 
+去 [bootstrap](http://v3.bootcss.com/css/) 研究一下别人是怎么做的。
+
 1. Media
 2. Thumbnail
 3. Button & Button Group & Dropdown
