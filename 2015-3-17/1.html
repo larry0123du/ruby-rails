@@ -32,11 +32,17 @@
   }
   #blue {
     background-color: #48F;
-    padding: 1px;
+    /*
+     * See http://stackoverflow.com/questions/13573653/css-margin-terror-margin-adds-space-outside-parent-element
+     */
+    overflow: auto;
   }
   #red {
     background-color: #F84;
-    padding: 1px;
+    /*
+     * See http://stackoverflow.com/questions/13573653/css-margin-terror-margin-adds-space-outside-parent-element
+     */
+    overflow: auto;
   }
   @media (max-width: 700px) {
     .left-col {
