@@ -69,10 +69,11 @@
 2. `self`
 3. Instance variables & methods
 4. Class variables & methods
+5. Methods end with "!", "?" or "="
 
 ## Other Stuff
 
-1. Array
+1. Array / Range
 2. Hash
 3. File
 4. Regex
@@ -85,9 +86,13 @@
 	2. `__LINE__`
 	3. `ARGV`
 	4. `ENV`
-	5. `DATA`
+	5. $*
 10. Singleton
 11. *Thread
+12. Bundler
+13. Sinatra
+14. Nokogiri
+14. Ruby coding style
 
 ## Practices
 
