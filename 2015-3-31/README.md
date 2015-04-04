@@ -8,10 +8,10 @@
     3. （bonus，5分）写一个质数生成器函数，这个函数可以用以下代码来打印100000以下所有的质数。
 
             prime_generate do |prime|
-              puts prime
               if prime > 100000
                 break
               end
+              puts prime
             end
 
 2. （使用 Ruby 实现）在 wikipedia 上**任意**获取 10 张页面，统计网页正文中最常出现的100个单词和它们的出现次数。
