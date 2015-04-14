@@ -1,15 +1,31 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :reply]
 
   # GET /posts
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html { render }
+      format.json do
+        render json: @posts
+      end
+    end
+  end
+
+  def hottest
+    @posts = Post.hottest
+    render :index
   end
 
   # GET /posts/1
   def show
     @post.clicks += 1
     @post.save
+  end
+
+  def reply
+    @post.replies.create(params[:reply].permit(:body))
+    redirect_to :back, notice: "Reply created successfully"
   end
 
   # GET /posts/new

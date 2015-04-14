@@ -7,5 +7,9 @@ class Post
   field :body, type: String
   field :clicks, type: Integer, default: 0
 
+  scope :hottest, -> { where(:clicks.gt => 5).desc(:clicks) }
+
+  field :replies_count, type: Integer, default: 0
+
   has_many :replies
 end

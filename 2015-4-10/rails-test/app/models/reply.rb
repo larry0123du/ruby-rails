@@ -5,4 +5,9 @@ class Reply
   field :body, type: Post, default: ""
 
   belongs_to :post
+  validates_presence_of :post
+
+  after_create do
+    post.inc(replies_count: 1)
+  end
 end
