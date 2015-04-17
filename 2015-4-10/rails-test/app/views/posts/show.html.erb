@@ -7,8 +7,7 @@
 </p>
 
 <div class="pull-right">
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
+  <%= action_links.html_safe? %>
 </div>
 
 <h3>Reply (<%= @post.replies_count %>):</h3>
