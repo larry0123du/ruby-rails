@@ -2,6 +2,8 @@
 
 <h3><%= @post.title %></h3>
 
+<p><%= @post.user.try(:email) || 'Anonymous User' %></p>
+
 <p>
   <%= @post.body %>
 </p>
@@ -11,13 +13,18 @@
 </div>
 
 <h3>Reply (<%= @post.replies_count %>):</h3>
+<%= replies = @post.replies.all.page params[:page] %>
 <ul>
   <% @post.replies.each do |reply| %>
   <li><%= reply.body %></li>
+  <li><%= reply.user.try(:email) || 'Anonymous User' %></li>
   <% end -%>
 </ul>
+<%= paginate replies %>
 
 <%= form_for Reply.new, url: reply_post_path do |f| %>
   <%= f.text_area :body %>
   <%= f.submit %>
+  <%= link_to 'Back', posts_path %>
+
 <% end -%>

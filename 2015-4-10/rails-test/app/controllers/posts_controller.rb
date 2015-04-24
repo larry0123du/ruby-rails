@@ -4,13 +4,14 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
     respond_to do |format|
       format.html { render }
       format.json do
         render json: @posts
       end
     end
+    
   end
 
   def hottest
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
 
   def reply
     @post.replies.create(params[:reply].permit(:body))
+    @post.replies.user = current_user
     redirect_to :back, notice: "Reply created successfully"
   end
 
@@ -41,6 +43,9 @@ class PostsController < ApplicationController
   # POST /posts
   def create
     @post = Post.new(post_params)
+    
+    # @post = current_user.posts.new(params[:post])
+    @post.user = current_user
 
     if @post.save
       redirect_to @post, notice: 'Post was successfully created.'
